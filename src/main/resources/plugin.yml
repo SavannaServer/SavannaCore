@@ -1,0 +1,4 @@
+name: SavannaCore
+version: '${project.version}'
+main: tokyo.ramune.savannacore.SavannaCore
+api-version: 1.19
