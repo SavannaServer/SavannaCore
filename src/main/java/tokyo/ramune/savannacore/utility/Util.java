@@ -2,6 +2,7 @@ package tokyo.ramune.savannacore.utility;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -12,6 +13,12 @@ import javax.annotation.Nonnull;
 import java.util.*;
 
 public final class Util {
+    public static Component getTeamPrefix(@Nonnull Component teamName, @Nonnull TextColor teamColor) {
+        return Component.text("[").decorate(TextDecoration.BOLD).color(TextColor.color(70, 70, 70))
+                .append(teamName.color(teamColor).decorate(TextDecoration.BOLD))
+                .append(Component.text("] ").decorate(TextDecoration.BOLD).color(TextColor.color(70, 70, 70)));
+    }
+
     public static Component coloredText(@Nonnull TextColor color, @Nonnull String text) {
         return Component.text(text).color(color);
     }

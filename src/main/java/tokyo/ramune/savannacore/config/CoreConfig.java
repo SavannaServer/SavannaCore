@@ -57,7 +57,9 @@ public final class CoreConfig extends ConfigFile {
         };
 
         String getPath();
+
         T getDefault();
+
         default Class<T> getClazz() {
             return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         }

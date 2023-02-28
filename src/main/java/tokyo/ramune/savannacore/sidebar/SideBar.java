@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
+import tokyo.ramune.savannacore.SavannaCore;
 
 import java.util.*;
 import java.util.function.Supplier;
@@ -91,6 +92,7 @@ public class SideBar {
 
     public SideBar show() {
         player.setScoreboard(scoreboard);
+        SavannaCore.getSideBarHandler().setSideBar(this);
         return this;
     }
 

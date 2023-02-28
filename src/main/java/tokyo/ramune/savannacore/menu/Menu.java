@@ -3,6 +3,7 @@ package tokyo.ramune.savannacore.menu;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import tokyo.ramune.savannacore.SavannaCore;
 
@@ -46,12 +47,15 @@ public class Menu {
         this.items = items;
     }
 
+    public void onClose(@Nonnull InventoryCloseEvent event) {
+    }
+
     public final void open(@Nonnull Player player) {
         final Inventory menu = Bukkit.createInventory(player, getSize(), getTitle());
 
         for (MenuItem item : items) {
             menu.setItem(item.getSlot(), item.getItem());
         }
-        SavannaCore.getInstance().getMenuHandler().registerMenu(this, menu);
+        SavannaCore.getMenuHandler().registerMenu(this, menu);
     }
 }
