@@ -55,13 +55,43 @@ public final class CoreConfig extends ConfigFile {
                 return Integer.class;
             }
         };
+        Path<Boolean> DISCORD_ENABLE = new Path<Boolean>() {
+            @Override
+            public String getPath() {
+                return "discord.enable";
+            }
+
+            @Override
+            public Boolean getDefault() {
+                return false;
+            }
+
+            @Override
+            public Class<Boolean> getClazz() {
+                return Boolean.class;
+            }
+        };
+        Path<String> DISCORD_TOKEN = new Path<String>() {
+            @Override
+            public String getPath() {
+                return "discord.token";
+            }
+
+            @Override
+            public String getDefault() {
+                return "token";
+            }
+
+            @Override
+            public Class<String> getClazz() {
+                return String.class;
+            }
+        };
 
         String getPath();
 
         T getDefault();
 
-        default Class<T> getClazz() {
-            return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        }
+        Class<T> getClazz();
     }
 }
